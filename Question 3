@@ -1,0 +1,47 @@
+#include <iostream>
+
+#include <stack>
+#include <string>
+using namespace std;
+void check(string a){
+    stack <char> b;
+    int n=a.length();
+    int i=0;
+    while(true){
+        if(i==n){
+            if(b.empty()==1){
+            cout<<"Parenthesis are balanced";
+
+            break;}
+            else {
+            cout<<"Parenthesis are not balanced";
+            break;
+        }
+
+        }  
+       else if(a[i]=='{'||a[i]=='['||a[i]=='('){
+            b.push(a[i]);
+            i++;
+
+        }
+        
+        else if(!b.empty()&&((a[i]=='}'&&b.top()=='{')||(a[i]==']'&&b.top()=='[')||(a[i]==')'&&b.top()=='('))){
+            
+                b.pop();
+                i++;
+               }
+        else {
+                cout<<"Parenthesis are not balanced";
+                break;
+            }
+        
+      }
+      i=0;
+
+
+}
+int main(){
+    string a=")()[{}()](){[]()}";
+    check(a);
+
+}
