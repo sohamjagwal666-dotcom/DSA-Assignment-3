@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+string reverse(string a){
+    stack <int> s;
+    string b;
+    b.resize(a.length());
+    for(int i=0;i<a.length();i++){
+        s.push(a[i]);
+    }
+    for(int i=0;i<a.length();i++){
+        b[i]=s.top();
+        s.pop();
+    }
+    return b;
+    
+}
+int main(){
+    string a="pineapple";
+    string b=reverse(a);
+    cout<<b;
+
+}
