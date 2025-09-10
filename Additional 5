@@ -1,0 +1,67 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+void check(int a[],int size){
+    stack <int> b;
+    
+   int n=size;
+   int c[size];
+   int sort[size];
+   for(int i=0;i<n;i++){
+    c[i]=a[i];
+
+   }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n-1;j++){
+            if(a[j]>a[j+1]){
+                int temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+int h=0;
+int g=0;
+    while(true){
+        if(g>=n){
+            break;
+        }
+        b.push(c[g]);
+        g++;
+        while(!b.empty()&&b.top()==a[h]){
+            sort[h]=b.top();
+            h++;
+            b.pop();
+             }
+        
+        
+        
+
+
+    }
+    if(!b.empty()){
+        while(!b.empty()){
+        sort[h]=b.top();
+        h++;
+        b.pop();
+        }
+    }
+    for(int i=0;i<=n;i++){
+        if(i==n){
+            cout<<"array can be sorted with stack";
+        }
+        else if(a[i]!=sort[i]){
+            cout<<"cannot sort using stack";
+            break;
+        }
+        
+    }
+
+    
+}
+int main(){
+    int arr[3]={2,3,1};
+
+    check(arr,(sizeof(arr)/sizeof(int)));
+
+}
