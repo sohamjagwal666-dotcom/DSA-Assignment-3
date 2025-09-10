@@ -1,0 +1,30 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main(){
+    stack <int> s;
+    int arr[10]={2,4,6,7,9,10,3,1,5,8};
+    int arr1[10];
+    int i=0;
+    while(true){
+        if(i>=10){
+            break;
+        }
+        else if(s.empty()==true){
+            arr1[i]=-1;
+            s.push(arr[i]);
+            i++;
+        }
+        else if(arr[i]>s.top()){
+            arr1[i]=s.top();
+            s.push(arr[i]);
+            i++;
+        }
+        else if(arr[i]<s.top()){
+            s.pop();
+        }
+    }
+    for(int i=0;i<10;i++){
+        cout<<arr1[i]<<" ";
+    }
+}
